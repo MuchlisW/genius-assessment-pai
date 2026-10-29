@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Muchlis Wahyudi">
+  <meta name="copyright" content="© 2026 Muchlis Wahyudi. All rights reserved.">
+  <title>Genius Assessment — AI for Teachers</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="container d-flex align-items-center justify-content-between py-3">
+      <div class="brand">GENIUS ASSESSMENT <span>— AI FOR TEACHERS</span></div>
+      <div id="timerBox" class="timer" hidden>⏱️ <span id="timer">30:00</span></div>
+    </div>
+  </header>
+
+  <main class="container py-4 py-md-5">
+    <section id="startPage" class="panel mx-auto fade-in">
+      <div class="text-center mb-4">
+        <div class="big-emoji">📖</div>
+        <h1 class="h3 fw-bold mb-1">Genius Assessment</h1>
+        <p class="mb-1 fw-semibold" id="subjectInfo"></p>
+        <p class="small text-muted mb-0" id="metaInfo"></p>
+      </div>
+      <form id="startForm" novalidate>
+        <div class="mb-3">
+          <label class="form-label fw-semibold" for="nama">Nama Lengkap</label>
+          <input class="form-control form-control-lg" id="nama" maxlength="60" autocomplete="name" placeholder="Tulis nama lengkap" required>
+          <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-semibold" for="nis">NIS</label>
+          <input class="form-control form-control-lg" id="nis" inputmode="numeric" maxlength="20" placeholder="Contoh: 12345" required>
+          <div class="invalid-feedback">NIS wajib diisi dengan angka.</div>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-semibold" for="kelas">Kelas</label>
+          <input class="form-control form-control-lg" id="kelas" maxlength="20" placeholder="Contoh: X TKJ 1" required>
+          <div class="invalid-feedback">Kelas wajib diisi.</div>
+        </div>
+        <button class="btn btn-warning btn-lg w-100 fw-bold" type="submit">🚀 Mulai Asesmen</button>
+      </form>
+    </section>
+
+    <section id="quizPage" class="panel mx-auto" hidden>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span id="qCounter" class="fw-semibold">Soal 1 dari 25</span>
+        <span id="qProgress" class="small text-muted">0 dijawab</span>
+      </div>
+      <div class="progress mb-3" role="progressbar" aria-label="Progres pengerjaan">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+      <div id="navNumbers" class="nav-numbers mb-4"></div>
+
+      <div id="questionArea" class="fade-in">
+        <span id="qTopic" class="badge topic-badge mb-2"></span>
+        <h2 id="qText" class="h5 q-text"></h2>
+        <div id="options" class="d-grid gap-2 mt-3"></div>
+        <div id="feedback" class="feedback" hidden></div>
+        <button id="nextBtn" class="btn btn-primary btn-lg w-100 mt-3" hidden>Soal Berikutnya ➜</button>
+      </div>
+    </section>
+
+    <section id="resultPage" class="panel mx-auto fade-in" hidden>
+      <div class="text-center">
+        <div id="resultEmoji" class="big-emoji"></div>
+        <h2 class="h4 fw-bold mb-1">Hasil Asesmen</h2>
+        <p id="resultNote" class="small text-muted"></p>
+        <div class="score-circle"><span id="finalScore">0</span><small>Nilai</small></div>
+      </div>
+      <table class="table result-table mt-3 mb-3">
+        <tbody>
+          <tr><th>Nama</th><td id="rNama"></td></tr>
+          <tr><th>NIS</th><td id="rNis"></td></tr>
+          <tr><th>Kelas</th><td id="rKelas"></td></tr>
+          <tr><th>Jawaban benar</th><td id="rBenar"></td></tr>
+          <tr><th>Jawaban salah</th><td id="rSalah"></td></tr>
+          <tr><th>Nilai akhir</th><td id="rNilai"></td></tr>
+          <tr><th>Waktu pengerjaan</th><td id="rWaktu"></td></tr>
+        </tbody>
+      </table>
+      <div id="resultFeedback" class="alert mb-3"></div>
+      <button id="restartBtn" class="btn btn-warning btn-lg w-100 fw-bold">Kembali ke Halaman Awal</button>
+    </section>
+  </main>
+
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
